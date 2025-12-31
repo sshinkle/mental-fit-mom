@@ -2,391 +2,613 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Mental Fit Mom Transformation™</title>
-  <meta name="description" content="Hybrid coaching for moms to build strength, regulate their nervous system, and become confident, capable, and strong—without burnout or scale obsession." />
+  <meta name="description" content="Hybrid coaching for moms: strength training + lifestyle + mindset. Build muscle, regulate your nervous system, and feel confident, capable, and strong — without burnout or scale obsession." />
 
   <style>
     :root{
-      --bg: #f7f7f5;
-      --white: #ffffff;
-      --text: #111827;
-      --muted: #4b5563;
-      --line: rgba(17,24,39,0.10);
-      --shadow: 0 10px 25px rgba(0,0,0,0.06);
-      --btn: #111827;
-      --btnHover: #374151;
-      --max: 1100px;
-      --radius: 14px;
+      --bg:#f7f7f5;
+      --panel:#ffffff;
+      --ink:#111827;
+      --muted:#4b5563;
+      --muted2:#6b7280;
+      --line:rgba(17,24,39,.10);
+      --shadow:0 12px 30px rgba(0,0,0,.06);
+      --radius:16px;
+      --max:1100px;
     }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
     }
 
-    a { color: inherit; }
+    a{ color:inherit; }
 
-    .container{
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 64px 20px;
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
     }
 
-    .section{
-      border-top: 1px solid var(--line);
+    /* Top bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(247,247,245,.88);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      text-decoration:none;
+    }
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.6);
+    }
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    nav a:hover{ background:rgba(255,255,255,.7); color:var(--ink); }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--ink);
+      transition:transform .06s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:active{ transform:translateY(1px); }
+    .btn.primary{
+      background:var(--ink);
+      color:#fff;
+    }
+    .btn.primary:hover{ background:#0b1220; }
+    .btn.ghost{
+      background:transparent;
+      color:var(--ink);
+      border-color:rgba(17,24,39,.28);
+    }
+    .btn.ghost:hover{ background:rgba(255,255,255,.7); }
+
+    /* Sections */
+    section{ padding:70px 0; }
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
     }
 
-    .card{
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:800;
+      font-size:12px;
+      color:var(--muted2);
+      margin-bottom:14px;
     }
 
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
+    h1{
+      font-size:clamp(34px, 4.2vw, 54px);
+      line-height:1.05;
+      margin:0 0 16px;
+      letter-spacing:-.02em;
     }
-
-    .col-12{ grid-column: span 12; }
-    .col-6{ grid-column: span 12; }
-    .col-4{ grid-column: span 12; }
-
-    @media (min-width: 900px){
-      .col-6{ grid-column: span 6; }
-      .col-4{ grid-column: span 4; }
+    h2{
+      font-size:clamp(24px, 2.8vw, 34px);
+      line-height:1.15;
+      margin:0 0 14px;
+      letter-spacing:-.02em;
     }
-
-    h1, h2, h3{
-      line-height: 1.15;
-      margin: 0 0 12px 0;
-      letter-spacing: -0.02em;
+    h3{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.01em;
     }
-    h1{ font-size: 44px; }
-    h2{ font-size: 30px; margin-top: 0; }
-    h3{ font-size: 20px; margin-top: 0; }
-    p{ margin: 0 0 14px 0; color: var(--muted); font-size: 18px; }
-
-    .kicker{
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #6b7280;
-      font-weight: 700;
-      margin-bottom: 14px;
+    p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:16px;
+    }
+    .lead{
+      font-size:18px;
+      color:var(--muted);
+      max-width:68ch;
     }
 
     .hero{
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
+      padding:68px 0 36px;
     }
-    .hero .container{
-      padding: 84px 20px 72px 20px;
-      text-align: center;
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
     }
-    .hero p{
-      max-width: 850px;
-      margin: 0 auto 20px auto;
-      font-size: 19px;
+    .hero .panel{ padding:34px; }
+    .heroActions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
     }
-
-    .badge-row{
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 14px;
-      margin-bottom: 24px;
-    }
-    .badge{
-      background: #f3f4f6;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-weight: 700;
-      font-size: 13px;
-      color: #374151;
+    .trust{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted2);
+      font-size:13px;
     }
 
-    .cta-row{
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 18px;
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
     }
-
-    .btn{
-      display: inline-block;
-      padding: 14px 22px;
-      background: var(--btn);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 16px;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: background 0.2s ease, transform 0.2s ease;
+    .grid2{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
     }
-    .btn:hover{ background: var(--btnHover); transform: translateY(-1px); }
-
-    .btn.secondary{
-      background: transparent;
-      color: var(--btn);
-      border: 1px solid var(--line);
-    }
-    .btn.secondary:hover{
-      background: #f3f4f6;
-      transform: translateY(-1px);
-    }
-
     ul{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 18px;
+      margin:10px 0 0 18px;
+      color:var(--muted);
     }
-    li{ margin: 8px 0; }
+    li{ margin:8px 0; }
 
-    .dark-cta{
-      background: var(--btn);
-      color: white;
-      border-top: none;
-    }
-    .dark-cta .container{ padding: 70px 20px; text-align: center; }
-    .dark-cta h2{ color: white; }
-    .dark-cta p{ color: rgba(255,255,255,0.82); max-width: 900px; margin: 0 auto 16px auto; }
-
-    .fineprint{
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 10px;
+    .divider{
+      height:1px;
+      background:var(--line);
+      margin:18px 0;
     }
 
-    .faq details{
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px 18px;
-      box-shadow: var(--shadow);
+    .priceBox{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
     }
-    .faq details + details{ margin-top: 12px; }
-    .faq summary{
-      cursor: pointer;
-      font-weight: 800;
-      color: var(--text);
-      font-size: 16px;
-      list-style: none;
+    .priceRow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(247,247,245,.6);
     }
-    .faq summary::-webkit-details-marker{ display: none; }
-    .faq .answer{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 17px;
+    .priceRow strong{ color:var(--ink); }
+    .small{ font-size:13px; color:var(--muted2); margin:0; }
+
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 16px;
+      background:#fff;
     }
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      color:var(--ink);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin-top:10px; }
+
+    .ctaStrip{
+      background:var(--ink);
+      color:#fff;
+      border-radius:var(--radius);
+      padding:28px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:var(--shadow);
+    }
+    .ctaStrip h2{ color:#fff; }
+    .ctaStrip p{ color:rgba(255,255,255,.85); }
+    .ctaStrip .btn.primary{
+      background:#fff;
+      color:var(--ink);
+      border-color:#fff;
+    }
+    .ctaStrip .btn.primary:hover{ background:rgba(255,255,255,.92); }
 
     footer{
-      border-top: 1px solid var(--line);
-      padding: 28px 20px;
-      text-align: center;
-      color: #6b7280;
-      font-size: 14px;
-      background: var(--bg);
+      padding:36px 0 56px;
+      color:var(--muted2);
+      font-size:13px;
+      text-align:center;
     }
-    .small{
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 8px;
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns:1fr; }
+      .grid3{ grid-template-columns:1fr; }
+      .grid2{ grid-template-columns:1fr; }
+      nav{ display:none; }
+      .topbar .wrap{ justify-content:space-between; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <span>The Mental Fit Mom™</span>
+        <span class="pill">16-Week Hybrid Coaching</span>
+      </a>
+
+      <nav>
+        <a href="#for">For You</a>
+        <a href="#method">Method</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn primary" href="#apply" style="padding:10px 14px; font-size:14px;">Apply</a>
+      </nav>
+
+      <a class="btn primary" href="#apply" style="padding:10px 14px; font-size:14px;">Apply</a>
+    </div>
+  </div>
 
   <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="container">
-      <div class="kicker">16-week hybrid coaching experience</div>
-      <h1>The Mental Fit Mom Transformation™</h1>
-      <p>
-        For moms who are done trying to do it all and burning out.
-        Build strength, prioritize your nervous system, and become
-        <strong>confident, capable, and strong</strong> — with a focus on
-        <strong>building muscle</strong>, not obsessing over the number on the scale.
-      </p>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div class="panel">
+          <div class="eyebrow">Certified Personal Trainer • Hybrid Coaching & Mentorship • Limited Enrollment</div>
+          <h1>The Mental Fit Mom Transformation™</h1>
+          <p class="lead">
+            For moms who are done trying to do it all and burning out.
+            Build strength, prioritize your nervous system, and become confident, capable, and strong —
+            without obsessing over the scale.
+          </p>
 
-      <div class="badge-row" aria-label="credentials">
-        <div class="badge">Certified Personal Trainer</div>
-        <div class="badge">Hybrid Coaching & Mentorship</div>
-        <div class="badge">Limited Monthly Enrollment</div>
-      </div>
+          <div class="heroActions">
+            <a class="btn primary" href="#apply">Apply for Coaching</a>
+            <a class="btn ghost" href="#how">Learn How It Works</a>
+          </div>
 
-      <div class="cta-row">
-        <a class="btn" href="#apply">Apply for Coaching</a>
-        <a class="btn secondary" href="#how">Learn How It Works</a>
-      </div>
-
-      <div class="small">Spots are limited to protect coaching quality and support.</div>
-    </div>
-  </header>
-
-  <!-- WHO IT'S FOR -->
-  <section class="section" id="for">
-    <div class="container">
-      <h2>Is this for you?</h2>
-      <p>
-        This program is for moms (30–45), including postpartum, who want real strength and confidence
-        — not another cycle of burnout and starting over.
-      </p>
-
-      <div class="grid">
-        <div class="col-6">
-          <div class="card">
-            <h3>This is for you if:</h3>
-            <ul>
-              <li>You’re tired of starting over every few months.</li>
-              <li>You want to feel strong and athletic — not just “smaller.”</li>
-              <li>You want coaching that supports your nervous system, not constant stress.</li>
-              <li>You want structure and accountability without rigid rules.</li>
-              <li>You want to build muscle and confidence, not obsess over the scale.</li>
-            </ul>
+          <div class="trust">
+            <span>✔ Build muscle & strength</span>
+            <span>✔ Nervous system + lifestyle support</span>
+            <span>✔ Mindset + confidence coaching</span>
           </div>
         </div>
 
-        <div class="col-6">
-          <div class="card">
-            <h3>This is not for you if:</h3>
-            <ul>
-              <li>You want a quick fix, detox, or “30-day shred.”</li>
-              <li>You’re looking for a generic PDF plan with no coaching.</li>
-              <li>You’re not ready to commit to consistency and support.</li>
-            </ul>
-          </div>
+        <div class="panel">
+          <h3>Results you can feel</h3>
+          <p>
+            This program is built to help you train like an athlete — with structure, recovery, and
+            support that fits real mom life.
+          </p>
+          <div class="divider"></div>
+          <h3>High-touch, then mentorship</h3>
+          <p>
+            You’ll get strong support at the start, then we intentionally build your confidence so you
+            can lead yourself — and use me as your mentor long-term.
+          </p>
+          <div class="divider"></div>
+          <p class="small">
+            Start dates are limited to keep support high.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- METHOD -->
-  <section class="section" id="method">
-    <div class="container">
-      <h2>The Mental Fit Mom Method™</h2>
-      <p>Equal parts strength, lifestyle, and mindset — so results feel sustainable, not exhausting.</p>
-
-      <div class="grid">
-        <div class="col-4">
-          <div class="card">
-            <h3>Strength</h3>
-            <p>Progressive training designed to build muscle, improve performance, and support real life.</p>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <div class="card">
-            <h3>Nervous System + Lifestyle</h3>
-            <p>Recovery, routine, fueling, and stress support that helps you stay consistent without burnout.</p>
-          </div>
-        </div>
-
-        <div class="col-4">
-          <div class="card">
-            <h3>Mindset</h3>
-            <p>Confidence-building mentorship so you stop second-guessing and start leading yourself.</p>
+    <!-- WHO IT'S FOR -->
+    <section id="for">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">Is this for you?</div>
+          <h2>Coaching for moms who want strength without burnout</h2>
+          <div class="grid2" style="margin-top:16px;">
+            <div class="panel" style="box-shadow:none;">
+              <h3>This is for you if…</h3>
+              <ul>
+                <li>You’re tired of starting over every few months.</li>
+                <li>You want to feel <strong>strong and athletic</strong> — not just “smaller.”</li>
+                <li>You want to focus on <strong>building muscle</strong>, not chasing a number on the scale.</li>
+                <li>You want nervous-system-aware guidance that supports your life.</li>
+                <li>You’re ready for accountability and real coaching (not generic PDFs).</li>
+              </ul>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <h3>This is not for you if…</h3>
+              <ul>
+                <li>You want a quick fix, detox, or “lose 10 pounds fast” plan.</li>
+                <li>You aren’t willing to commit to consistency and coaching.</li>
+                <li>You want to do everything alone with no feedback or support.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section" id="how">
-    <div class="container">
-      <h2>How it works</h2>
-      <p>
-        You’ll get strong support up front, then we intentionally build independence — so you leave confident,
-        capable, and self-led.
-      </p>
+    <!-- METHOD -->
+    <section id="method">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">The Mental Fit Mom Method™</div>
+          <h2>Equal parts strength, lifestyle, and mindset</h2>
+          <p class="lead">We build a body you trust — and a mind that doesn’t spiral every time life gets busy.</p>
 
-      <div class="grid">
-        <div class="col-4">
-          <div class="card">
-            <h3>Phase 1: Supported</h3>
-            <p>Weeks 1–6: structure, reassurance, education, form feedback, and consistency systems.</p>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <h3>Phase 2: Empowered</h3>
-            <p>Weeks 7–12: decision-making confidence, routines that stick, and fewer “what do I do?” moments.</p>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="card">
-            <h3>Phase 3: Mentored</h3>
-            <p>Weeks 13–16: identity shift, sustainability, and long-term strategy you can trust.</p>
+          <div class="grid3" style="margin-top:18px;">
+            <div class="panel" style="box-shadow:none;">
+              <h3>Strength</h3>
+              <p>Progressive training designed to build muscle, improve metabolism, and support real-life energy.</p>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <h3>Lifestyle</h3>
+              <p>Recovery, routines, and fueling strategies that prioritize your nervous system — without perfection.</p>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <h3>Mindset</h3>
+              <p>Identity-based coaching to break all-or-nothing patterns and build confidence that lasts.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-      <h2>About your coach</h2>
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">How it works</div>
+          <h2>A structured transformation that builds independence</h2>
+          <p class="lead">You’ll feel supported at first — then we shift you into confidence, capability, and self-leadership.</p>
 
-      <div class="grid">
-        <div class="col-12">
-          <div class="card">
-            <h3>Certified Personal Trainer + Mentorship Approach</h3>
+          <div class="grid3" style="margin-top:18px;">
+            <div class="panel" style="box-shadow:none;">
+              <h3>Phase 1: Supported</h3>
+              <p class="small">Weeks 1–6</p>
+              <ul>
+                <li>High-touch support & structure</li>
+                <li>Form feedback + training confidence</li>
+                <li>Simple routines that calm overwhelm</li>
+              </ul>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <h3>Phase 2: Empowered</h3>
+              <p class="small">Weeks 7–12</p>
+              <ul>
+                <li>Consistency systems for busy weeks</li>
+                <li>Stronger decision-making around food & training</li>
+                <li>Less dependence, more ownership</li>
+              </ul>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <h3>Phase 3: Mentored</h3>
+              <p class="small">Weeks 13–16</p>
+              <ul>
+                <li>Identity shift: you train like “you” now</li>
+                <li>Sustainability plan for life after the program</li>
+                <li>Mentorship and long-term confidence</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <h3>What’s included</h3>
+          <div class="grid2" style="margin-top:12px;">
+            <div class="panel" style="box-shadow:none;">
+              <ul>
+                <li><strong>Personalized strength plan</strong> (updated as needed)</li>
+                <li><strong>Weekly coaching call</strong> (group)</li>
+                <li><strong>Weekly check-ins</strong> (accountability + adjustments)</li>
+                <li><strong>Support & guidance</strong> to build independence over time</li>
+              </ul>
+            </div>
+            <div class="panel" style="box-shadow:none;">
+              <ul>
+                <li><strong>Nutrition & lifestyle framework</strong> (muscle-focused, not scale-focused)</li>
+                <li><strong>Nervous system support</strong> routines + recovery strategy</li>
+                <li><strong>Mindset coaching</strong> for consistency and confidence</li>
+                <li><strong>Progress tracking</strong> (strength, energy, habits)</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">About</div>
+          <h2>Your coach</h2>
+          <p class="lead">
+            I’m a Certified Personal Trainer who helps moms stop burning out and start training with confidence.
+            My coaching prioritizes nervous system support, strength progression, and mindset — so you build muscle,
+            feel capable, and stay consistent in real life.
+          </p>
+          <p>
+            You won’t find extremes here. You’ll find structure, support, and a plan that teaches you how to lead yourself.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">Pricing</div>
+          <h2>Upfront, simple, and aligned</h2>
+          <p class="lead">
+            This is a premium, high-touch coaching experience with limited monthly enrollment.
+          </p>
+
+          <div class="priceBox" style="margin-top:16px;">
+            <div class="priceRow">
+              <div>
+                <strong>$3,750</strong> <span class="small">Pay in full</span>
+              </div>
+              <div class="small">Best value</div>
+            </div>
+
+            <div class="priceRow">
+              <div>
+                <strong>$4,000</strong> <span class="small">Payment plan</span>
+              </div>
+              <div class="small">Split payments</div>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top:12px;">
+            Final payment schedule is provided after acceptance (you’ll always see the terms before paying).
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="ctaStrip" id="apply">
+            <h2>Apply for coaching</h2>
             <p>
-              I coach moms who feel like they’re carrying everything — and fitness becomes one more thing to “do perfectly.”
-              My approach is strength-focused and nervous-system supportive, so you can build muscle, feel powerful,
-              and stay consistent without burning yourself out.
+              Applications are reviewed to ensure the right fit.
+              If accepted, you’ll receive next steps and onboarding details.
             </p>
-            <p>
-              You won’t just get a plan — you’ll learn how to train with confidence, fuel your body with clarity,
-              and trust yourself again.
+            <div class="heroActions" style="margin-top:12px;">
+              <a class="btn primary" href="https://YOUR-GOOGLE-FORM-LINK-HERE" target="_blank" rel="noopener">Submit Application</a>
+              <a class="btn ghost" href="#faq" style="border-color:rgba(255,255,255,.35); color:#fff;">Read FAQs</a>
+            </div>
+            <p class="small" style="margin-top:12px; color:rgba(255,255,255,.78);">
+              Limited enrollment • 10–15 clients per month
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHAT YOU GET -->
-  <section class="section" id="included">
-    <div class="container">
-      <h2>What you get</h2>
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="panel">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
 
-      <div class="grid">
-        <div class="col-6">
-          <div class="card">
-            <h3>Coaching + Support</h3>
-            <ul>
-              <li>Weekly live coaching call (60 minutes)</li>
-              <li>Weekly check-ins and progress tracking</li>
-              <li>Messaging support (higher-touch early on, then mentorship-focused)</li>
-              <li>Accountability, mindset coaching, and habit systems</li>
-            </ul>
+          <div style="display:grid; gap:12px; margin-top:16px;">
+            <details>
+              <summary>Is this 1:1 coaching or group?</summary>
+              <p>
+                This is hybrid coaching: you get a personalized plan plus weekly coaching calls and check-ins.
+                Support is designed to be high-touch early on, then shift into mentorship as your confidence grows.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do I need a gym?</summary>
+              <p>
+                A gym is helpful, but not required. If you train at home, we’ll build your plan around the equipment you have
+                and adjust as needed.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is this postpartum friendly?</summary>
+              <p>
+                Yes. Programming can be adapted for postpartum needs and your current capacity. If you have medical concerns,
+                we’ll stay within appropriate training scope and coordinate with your provider when needed.
+              </p>
+            </details>
+
+            <details>
+              <summary>Will I have to track calories or weigh myself?</summary>
+              <p>
+                No. This program is muscle-focused and structure-focused. We can use simple nutrition guidelines and habits
+                without obsessing over the scale.
+              </p>
+            </details>
+
+            <details>
+              <summary>How soon will I see results?</summary>
+              <p>
+                Most clients notice improvements in energy, consistency, and confidence early on. Visible physique changes follow
+                as strength and habits build over the 16 weeks.
+              </p>
+            </details>
+
+            <details>
+              <summary>What happens after 16 weeks?</summary>
+              <p>
+                You’ll leave with a sustainability plan and the skills to lead yourself. If you want ongoing mentorship, you’ll
+                have options to continue.
+              </p>
+            </details>
+
+            <details>
+              <summary>What if I’m not accepted?</summary>
+              <p>
+                If it’s not the right fit (timing, readiness, needs), you’ll be notified. The goal is to protect your progress
+                and ensure every client gets the support they deserve.
+              </p>
+            </details>
           </div>
-        </div>
 
-        <div class="col-6">
-          <div class="card">
-            <h3>Training + Lifestyle</h3>
-            <ul>
-              <li>Personalized strength training plan</li>
-              <li>Progression strategy and benchmarks</li>
-              <li>Form guidance (as needed)</li>
-              <li>Lifestyle structure: recovery, sleep routines, stress support</li>
-              <li>Nutrition guidance with a muscle-building focus (non-diet approach)</li>
-            </ul>
+          <div class="divider"></div>
+          <p class="small">
+            Disclaimer: Coaching is not medical advice. Always consult a qualified professional for medical concerns.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> The Mental Fit Mom Transformation™ • All rights reserved
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
